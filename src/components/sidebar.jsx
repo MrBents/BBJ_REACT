@@ -13,12 +13,12 @@ class SideBar extends Component {
       <ListGroup>
         {this.props.conveyors.map(c => (
           <ListGroupItem
-            key={c.id}
+            key={c.number}
             style={this.listGroupItemStyles}
             color="secondary"
           >
             <span style={{ fontSize: 20, textAlign: "left" }}>
-              Conveyor {c.id}
+              Conveyor {c.number}
             </span>
           </ListGroupItem>
         ))}
