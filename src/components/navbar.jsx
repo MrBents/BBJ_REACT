@@ -33,7 +33,8 @@ class NavBarC extends React.Component {
               NeuralSight
             </span>
           </NavbarBrand>
-          <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
+          {/* <NavbarToggler onClick={this.toggleNavbar} className="mr-2" /> */}
+          <NavbarToggler onClick={this.props.expand} className="mr-2" />
           <Collapse isOpen={!this.state.collapsed} navbar>
             <Nav navbar style={{ float: "left" }}>
               {/* <Nav navbar> */}

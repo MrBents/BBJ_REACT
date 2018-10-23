@@ -5,31 +5,46 @@ import Monitor from "./components/monitor";
 import { Col, Row } from "reactstrap";
 // import SampleGraph from "./components/sampleGraph";
 import MainView from "./components/mainView";
+import Sidebar from "react-sidebar";
 
 class App extends Component {
-  state = { users: [] };
+  state = {
+    users: [],
+    sidebarOpen: true
+  };
 
-  // componentDidMount() {
-  //   fetch("/users")
-  //     .then(res => res.json())
-  //     .then(users => this.setState({ users }));
-  // }
+  constructor(props) {
+    super(props);
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+  }
+
+  onSetSidebarOpen() {
+    this.setState({ sidebarOpen: !this.state.sidebarOpen });
+  }
 
   andres = <p>Puta</p>;
 
   render() {
     return (
       <div className="App">
-        <NavBarC />
         <Row>
-          <Col xs="2" style={{ padding: 0 }}>
-            <Monitor />
-          </Col>
-          <Col style={{ padding: 0 }}>
-            {/* <SampleGraph /> */}
-            <MainView />
+          <Col>
+            <NavBarC expand={this.onSetSidebarOpen} />
           </Col>
         </Row>
+        <Row>
+          <Col>
+            <Sidebar
+              sidebar={<Monitor />}
+              open={this.state.sidebarOpen}
+              onSetOpen={this.onSetSidebarOpen}
+              styles={{ sidebar: { background: "white" } }}
+            />
+          </Col>
+        </Row>
+
+        {/* <SampleGraph /> */}
+        {/* <MainView /> */}
       </div>
     );
   }
