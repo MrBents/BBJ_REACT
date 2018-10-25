@@ -7,6 +7,7 @@ import { Col, Row } from "reactstrap";
 import MainView from "./components/mainView";
 import socketIOClient from "socket.io-client";
 import axios from "axios";
+import config from "./config";
 
 class App extends Component {
   state = {
