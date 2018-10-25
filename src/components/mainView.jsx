@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import imageViewer from "./imageViewer";
 
 class MainView extends Component {
-  state = { current_view: "dashboard" };
+  state = { current_view: "dashboard_not" };
 
   getDashboardView = () => {
     //gobriel tu code va aca
@@ -14,6 +15,7 @@ class MainView extends Component {
 
   getConveyorView = () => {
     //Max tu code va aca
+    return <imageViewer conveyor="1" />;
   };
 
   getConveyor;
