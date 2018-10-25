@@ -12,7 +12,8 @@ class Image extends Component {
     let defaults = {
       height: height || 100,
       width: width || 100,
-      backgroundColor: "gray"
+      backgroundColor: "gray",
+      display: "inline-block"
     };
 
     let important = {

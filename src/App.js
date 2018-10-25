@@ -5,7 +5,6 @@ import Monitor from "./components/monitor";
 import { Col, Row } from "reactstrap";
 // import SampleGraph from "./components/sampleGraph";
 import MainView from "./components/mainView";
-import socketIOClient from "socket.io-client";
 import axios from "axios";
 import config from "./config";
 
@@ -29,7 +28,6 @@ class App extends Component {
   }
 
   render() {
-    const socket = socketIOClient(this.state.endpoint);
     return (
       <div className="App">
         <NavBarC />

@@ -3,12 +3,25 @@ import Image from "./image";
 
 class ImageViewer extends Component {
   state = {
-    top_img_src: "",
-    head_img_source: ""
+    src: ""
   };
 
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    this.setState({ src: this.props.default });
+  }
+
   render() {
-    return <br />;
+    return (
+      <Image
+        src={this.state.src}
+        height={this.props.height}
+        width={this.props.width}
+      />
+    );
   }
 }
 
