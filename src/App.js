@@ -5,9 +5,11 @@ import Monitor from "./components/monitor";
 import { Col, Row } from "reactstrap";
 // import SampleGraph from "./components/sampleGraph";
 import MainView from "./components/mainView";
+import socketIOClient from "socket.io-client";
+import config from "./config";
 
 class App extends Component {
-  state = { users: [] };
+  state = { users: [], endpoint: config.express_url };
 
   // componentDidMount() {
   //   fetch("/users")
@@ -18,6 +20,7 @@ class App extends Component {
   andres = <p>Puta</p>;
 
   render() {
+    const socket = socketIOClient(this.state.endpoint);
     return (
       <div className="App">
         <NavBarC />
