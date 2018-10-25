@@ -6,18 +6,26 @@ import { Col, Row } from "reactstrap";
 // import SampleGraph from "./components/sampleGraph";
 import MainView from "./components/mainView";
 import socketIOClient from "socket.io-client";
-import config from "./config";
+import axios from "axios";
 
 class App extends Component {
-  state = { users: [], endpoint: config.express_url };
+  state = {
+    users: [],
+    conveyors: [],
+    active_conveyor: "1",
+    endpoint: config.express_url
+  };
 
-  // componentDidMount() {
-  //   fetch("/users")
-  //     .then(res => res.json())
-  //     .then(users => this.setState({ users }));
-  // }
+  constructor(props) {
+    super(props);
+  }
 
-  andres = <p>Puta</p>;
+  async componentDidMount() {
+    axios.get(config.express_url + "conveyors").then(res => {
+      console.log(res.data);
+      this.setState({ conveyors: res.data });
+    });
+  }
 
   render() {
     const socket = socketIOClient(this.state.endpoint);
@@ -26,11 +34,14 @@ class App extends Component {
         <NavBarC />
         <Row>
           <Col xs="2" style={{ padding: 0 }}>
-            <Monitor />
+            <Monitor conveyors={this.state.conveyors} />
           </Col>
           <Col style={{ padding: 0 }}>
             {/* <SampleGraph /> */}
-            <MainView />
+            <MainView
+              conveyors={this.state.conveyors}
+              active_conveyor={this.state.active_conveyor}
+            />
           </Col>
         </Row>
       </div>
