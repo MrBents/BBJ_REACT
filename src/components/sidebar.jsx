@@ -11,6 +11,9 @@ class SideBar extends Component {
   render() {
     return (
       <ListGroup>
+        <ListGroupItem style={this.listGroupItemStyles} color="secondary">
+          DashBoard
+        </ListGroupItem>
         {this.props.conveyors.map(c => (
           <ListGroupItem
             key={c.number}

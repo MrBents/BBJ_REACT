@@ -13,8 +13,7 @@ class MainView extends Component {
     feed: [
       { id: 272, class: "good", type: "speed45" },
       { id: 273, class: "good", type: "speed45" },
-      { id: 274, class: "bad", type: "speed45" },
-      { id: 275, class: "good", type: "speed45" }
+      { id: 274, class: "bad", type: "speed45" }
     ]
   };
 
@@ -35,13 +34,13 @@ class MainView extends Component {
     const socket = socketIOClient(this.state.endpoint);
     return (
       <Row>
-        <Col>
+        <Col xs="3">
           <div style={this.columnStyle}>
             <ImageViewer
               conveyor={this.props.active_conveyor}
-              default={"https://via.placeholder.com/150x600"}
-              height={600}
-              width={150}
+              default={"https://via.placeholder.com/140x480"}
+              height={480}
+              width={140}
             />
           </div>
         </Col>
@@ -51,9 +50,9 @@ class MainView extends Component {
             <div style={this.columnStyle}>
               <ImageViewer
                 conveyor={this.props.active_conveyor}
-                default={"https://via.placeholder.com/350x350"}
-                height={350}
-                width={350}
+                default={"https://via.placeholder.com/640x480"}
+                height={480}
+                width={640}
               />
             </div>
           </Row>
